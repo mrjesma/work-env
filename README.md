@@ -52,6 +52,9 @@ In windows 11, the windows terminal is the default terminal emulator and it is a
 #### Configure
 Copy the content of [windows-terminal.json](windows-terminal.json) to the windows terminal `config.json` file.
 
+#### win32yank
+Download win32yank and put it in your path (eg.: C:\Windows\System32) for a seamless clipboard between Windows and WSL. `https://github.com/equalsraf/win32yank`
+
 
 # OH-MY-ZSH
 #### Install dependencies
