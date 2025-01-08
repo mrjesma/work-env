@@ -30,7 +30,7 @@ wsl -d Ubuntu
 ```
 
 #### Configure DNS
-- `sudo vim /etc/resolv.conf`
+- `sudo rm /etc/resolv.conf; sudo vim /etc/resolv.conf`
 
 ```plaintext
 nameserver 10.100.59.182
