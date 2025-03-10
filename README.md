@@ -192,3 +192,49 @@ stow -t ~/ ansible
 ```
 
 
+# DOCKER
+
+#### Set up repo
+```bash
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+```
+
+#### Install packages
+```bash
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+ ```
+
+#### Non-root user configuration
+```bash
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+# Log out and log back in so that your group membership is re-evaluated
+newgrp docker
+```
+
+#### Configure log
+```bash
+echo \
+'{
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "3"
+  }
+}' | sudo tee -a /etc/docker/daemon.json
+
+sudo systemctl restart docker
+```
+
+
