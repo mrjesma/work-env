@@ -7,7 +7,10 @@ I may soon create an ansible playbook or a bash script to automate this proccess
 # WSL
 
 #### Install WSL distro
-- `wsl --install Ubuntu`
+- `wsl --install`
+- `wsl --update`
+- `wsl --version`
+- `wsl --install -d Ubuntu`
 - Enter username and password when requested
 
 #### Edit WSL distro configuration
