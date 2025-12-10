@@ -33,13 +33,9 @@ wsl -d Ubuntu
 ```
 
 #### Configure DNS
-- `sudo rm /etc/resolv.conf; sudo vim /etc/resolv.conf`
-
-```plaintext
-nameserver 10.100.59.182
-nameserver 10.55.41.182
-nameserver 1.1.1.1
-search gc.dg
+```bash
+sudo resolvectl dns eth0 1.1.1.1
+sudo resolvectl domain eth0 br.proj.empros.com
 ```
 
 #### Update packages
@@ -214,7 +210,7 @@ sudo apt update
 
 #### Install packages
 ```bash
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
  ```
 
 #### Non-root user configuration
