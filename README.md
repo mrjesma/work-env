@@ -57,13 +57,11 @@ Download win32yank and put it in your path (eg.: C:\Windows\System32) for a seam
 
 # SHELL
 ## BASH
-Install Starship shell prompt
+#### Configure
 ```bash
+# Install Starship shell prompt
 curl -sS https://starship.rs/install.sh | sh
-```
 
-Configure bash environment
-```bash
 [[ ! -d ~/repos/dotfiless ]] && git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
 
 mv ~/.bashrc{,-bkp}
@@ -149,12 +147,18 @@ make CMAKE_BUILD_TYPE=Release && sudo make install
 # Install dependencies
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt update && \
-sudo apt install -y git stow ripgrep nodejs python3-venv 
+sudo apt install -y git stow ripgrep nodejs python3-venv rustup
 
 [[ ! -d ~/repos/dotfiless ]] && git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
 
 cd ~/repos/dotfiles
 stow -t ~/ nvim
+```
+
+```bash
+# Mason (LSPs) dependencies
+sudo apt install rustup libssl-dev
+rustup default stable
 ```
 
 
