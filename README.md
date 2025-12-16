@@ -55,7 +55,23 @@ Copy the content of [windows-terminal.json](windows-terminal.json) to the window
 Download win32yank and put it in your path (eg.: C:\Windows\System32) for a seamless clipboard between Windows and WSL. `https://github.com/equalsraf/win32yank`
 
 
-# OH-MY-ZSH
+# SHELL
+## BASH
+Install Starship shell prompt
+```bash
+curl -sS https://starship.rs/install.sh | sh
+```
+
+Configure bash environment
+```bash
+[[ ! -d ~/repos/dotfiless ]] && git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
+
+mv ~/.bashrc{,-bkp}
+cd ~/repos/dotfiles
+stow -t ~/ bash
+```
+
+## OH-MY-ZSH
 #### Install dependencies
 ```bash
 sudo apt update && \
@@ -73,7 +89,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 sudo apt update && \
 sudo apt install -y git stow autojump
 
-git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
+[[ ! -d ~/repos/dotfiless ]] && git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
 
 cd ~/repos/dotfiles
 rm ~/.zshrc
@@ -104,7 +120,7 @@ sh autogen.sh
 sudo apt update && \
 sudo apt install -y git stow fzf
 
-git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
+[[ ! -d ~/repos/dotfiless ]] && git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
 
 cd ~/repos/dotfiles
 stow -t ~/ bin
@@ -135,7 +151,7 @@ curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt update && \
 sudo apt install -y git stow ripgrep nodejs python3-venv 
 
-git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
+[[ ! -d ~/repos/dotfiless ]] && git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
 
 cd ~/repos/dotfiles
 stow -t ~/ nvim
@@ -163,7 +179,7 @@ sudo BIN_DIR=/usr/local/bin bash -c "$(curl -sL https://raw.githubusercontent.co
 sudo apt update && \
 sudo apt install -y git stow 
 
-git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
+[[ ! -d ~/repos/dotfiless ]] && git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
 
 cd ~/repos/dotfiles
 stow -t ~/ navi
@@ -184,7 +200,7 @@ sudo apt install -y sshpass ansible python3-pyvmomi python3-proxmoxer
 sudo apt update && \
 sudo apt install -y git stow 
 
-git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
+[[ ! -d ~/repos/dotfiless ]] && git clone --recurse-submodules https://github.com/mrjesma/dotfiles.git ~/repos/dotfiles
 
 cd ~/repos/dotfiles
 stow -t ~/ ansible
